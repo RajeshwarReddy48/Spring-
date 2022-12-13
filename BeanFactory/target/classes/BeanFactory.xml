@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/context/spring-context.xsd"
+        xmlns:context="http://www.springframework.org/schema/context">
+        
+
+<!--bean id="triangle" class="com.spring.branfactory.Triangle">
+<constructor-arg index="0" value="Equilateral"/> 
+<constructor-arg  index="1" value="50"/>  
+</bean>-->
+
+<!--  
+<bean id="triangle" class="com.spring.branfactory.Triangle">
+<property name="PointA" ref="PointA"></property>
+<property name="PointB" ref="PointB"></property>
+<property name="PointC" ref="PointC"></property>
+</bean>-->
+ 
+ <!--   <bean id="triangle" class="com.spring.branfactory.Triangle">
+   <property name="points">
+     <list>
+     <ref bean="zeroPoint"/>
+     <ref bean="secondPoint"/>
+     <ref bean="thirdPoint"/>
+   </list>
+   </property>
+ </bean>-->
+
+
+<bean id="PointA" class="com.spring.branfactory.Point">
+<property name="x" value="0"></property>
+<property name="y" value="0"></property>
+</bean>
+
+<bean id="center" class="com.spring.branfactory.Point">
+<qualifier value="circleRelated"/>
+<property name="x" value="-20"></property>
+<property name="y" value="0"></property>
+</bean>
+
+<bean id="PointC" class="com.spring.branfactory.Point">
+<property name="x" value="0"></property>
+<property name="y" value="20"></property>
+</bean>
+
+<!-- <bean class="com.spring.branfactory.DisplayNameBeanPostProcessor"></bean>-->
+
+<bean id="circle" class="com.spring.branfactory.Circle">
+</bean>
+
+<!-- <context:annotation-config /> -->
+<!-- <context:component-scan base-package="com.spring.branfactory"/>
+ -->
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+ -->
+</beans>
